@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+ #MongoDB services
+  mongo_db:
+    image: mongo:latest
+    container_name: mongo_db
+    restart: always
+    ports:
+      - 2717:27017
+    volumes:
+      - mongo_db:/data/db
+
+ # node ai service
+  api:
+    build: .
+    ports:
+      - 4000:3000
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}
+   
+
+    
