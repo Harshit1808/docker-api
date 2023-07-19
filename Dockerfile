@@ -5,7 +5,7 @@ FROM node:alpine
 WORKDIR /app
 
 # Install app dependencies
-COPY package*.json .
+COPY package*.json ./
 RUN npm ci
 
 # Bundle app source
